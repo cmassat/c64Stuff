@@ -1,4 +1,7 @@
-.d64
-.prg
-.sym
-
+*.d64
+*.prg
+*.sym
+*.sid
+.DS_Store
+.vscode
+*.64c
