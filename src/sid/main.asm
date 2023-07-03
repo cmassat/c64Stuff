@@ -41,10 +41,10 @@ BasicUpstart2(start)
 .const sid_piano_wf = 11000001 // pulse
 
 // calliope
-.const sid_ad_calliope = $00
-.const sid_sr_calliope = $f0
-.const sid_duty_calliope = $0
-.const sid_wf_calliope = 00010001 // triangle
+.const sid_ad_calliope = $33
+.const sid_sr_calliope = $33
+.const sid_duty_calliope = 2000
+.const sid_wf_calliope = 01000001 // triangle
 
 // drum
 .const sid_ad_drums = $05
@@ -56,11 +56,11 @@ BasicUpstart2(start)
 .const sid_ad_accordion = $0001
 .const sid_sr_accordion = $0f0f
 .const sid_duty_accordion = $0
-.const sid_wf_accordion = 10100001 // sawtooth
+.const sid_wf_accordion = 00100001 // sawtooth
 
 // guitar
-.const sid_ad_guitar = $0009
-.const sid_sr_guitar = $0201
+.const sid_ad_guitar = $09
+.const sid_sr_guitar = $21
 .const sid_duty_guitar = 0
 .const sid_wf_guitar = 10100001 // sawtooth
 
@@ -106,7 +106,7 @@ upstartEnd:
 .macro play_voice_1() {
     lda #0
     sta sid_v1_control
-    lda #sid_wf_calliope
+    lda #sid_wf_guitar
     sta sid_v1_control
 
     //lda #0
@@ -175,14 +175,14 @@ finish:
 }
 
 .macro set_voice_1() {
-  lda #sid_ad_calliope
+  lda #sid_ad_guitar
   sta sid_v1_ad
-  lda #sid_sr_calliope
+  lda #sid_sr_guitar
   sta sid_v1_sr
 
-  lda #<sid_duty_calliope
+  lda #<sid_duty_guitar
   sta sid_v1_duty_lo
-  lda #>sid_duty_calliope
+  lda #>sid_duty_guitar
   sta sid_v1_duty_hi
 }
 
