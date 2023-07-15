@@ -73,7 +73,7 @@ ldx #0
   cpx sid_chip_end
   bne !loop-
   set_irq();
-  lda #00000111
+  lda #00001111
   sta sid_v1_volume
 
   set_voice_1()
